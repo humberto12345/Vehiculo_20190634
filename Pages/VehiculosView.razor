@@ -1,0 +1,72 @@
+@page "/Vehiculos"
+
+@using Vehiculos_20190634.Data.Models;
+
+
+<PageTitle>Registro de Vehiculos</PageTitle>
+
+<h1>Registro de Vehiculos </h1>
+
+
+<label>Serial No.</label>
+<input @bind="Registra.VehiculoID">
+<div class="mt-3"></div>
+
+<label>Marca</label>
+<input @bind="Registra.Marca">
+<div class="mt-3"></div>
+
+<label>Modelo</label>
+<input @bind="Registra.Modelo">
+<div class="mt-3"></div>
+
+<label>Año</label>
+<input @bind="Registra.Año">
+
+<label>Color</label>
+<input @bind="Registra.Color">
+
+
+<button>Enviar</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Color</th>
+        </tr>
+    </thead>
+     <tbody>
+        @foreach (var Vehiculo in (Vehiculos))
+        {
+            <tr>
+                <td>@Vehiculo.VehiculoID</td>
+                <td>@Vehiculo.Marca</td>
+                <td>@Vehiculo.Modelo</td>
+                <td>@Vehiculo.Año.</td>
+                <td>@Vehiculo.Color </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code
+{
+    public Vehiculos Registra {get;set;}= new Vehiculos{};
+
+    public List<Vehiculos> Vehiculos {get;set;} = new List<Vehiculos>();
+
+
+
+
+}
+
+
+
+
+
+
+
